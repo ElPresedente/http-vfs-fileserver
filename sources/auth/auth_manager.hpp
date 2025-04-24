@@ -8,7 +8,7 @@ namespace fileserver{
     class AuthManager{
     public:
         bool register_vfs( std::string const& vfs_name, std::string const& key );
-        bool unregister_vfs( std::string const& vfs_name, std::string const& key );
+        bool unregister_vfs( std::string const& vfs_name );
     
     
         bool proof_vfs( std::string const& vfs_name, std::string const& auth_header );
