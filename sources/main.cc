@@ -1,15 +1,17 @@
-#include <spdlog/spdlog.h>
+#include "auth/auth_manager.hpp"
+#include <vfs/vfs_manager.hpp>
+#include <auth/auth_manager.hpp>
+#include <server/server.hpp>
 
-namespace fileserver{
-    void configure_logger(){
-
-    }
-}
 
 int main(){
     using namespace fileserver;
 
-    configure_logger();
+    AuthManager auth_mgr;
+
+    VfsManager manager{ auth_mgr };
+
+
 
     return 0;
 }

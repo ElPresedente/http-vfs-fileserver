@@ -5,18 +5,14 @@
 
 namespace fileserver{
 
-    enum class VfsType{
-        FILESYSTEM
-    };
-
     class IVfs{
     public:
+        IVfs(){}
+        virtual std::vector<File> list_files( std::string_view path ) = 0;
 
-        virtual std::vector<File> list_files( std::string_view path );
+        // virtual bool create_directory( std::string_view path );
 
-        virtual bool create_directory( std::string_view path );
-
-        virtual bool delete_file( std::string_view path );
+        // virtual bool delete_file( std::string_view path );
 
         //etc...
     };
