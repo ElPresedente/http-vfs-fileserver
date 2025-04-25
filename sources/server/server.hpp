@@ -1,5 +1,8 @@
 #pragma once
 
+#include <cpp-httplib/httplib.h>
+
+
 namespace fileserver{
     
     class VfsManager;
@@ -7,17 +10,17 @@ namespace fileserver{
     class AuthManager;
     class Server{
     public:
-        Server( VfsManager& manager, Configurator& configurator, AuthManager& auth )
-            : _manager( manager)
-            , _configurator( configurator )
-            , _auth_manager( auth )
-        {}
+        Server( VfsManager& manager, Configurator& configurator, AuthManager& auth );
 
-        int run();
+        int run( std::string const& host, uint16_t port );
 
     private:
-        VfsManager& _manager;
+        void setup_routes();
+
+        VfsManager& _vfs_manager;
         Configurator& _configurator;
         AuthManager& _auth_manager;
+
+        httplib::Server _server;
     };
 }

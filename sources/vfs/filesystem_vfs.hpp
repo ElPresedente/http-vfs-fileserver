@@ -5,6 +5,8 @@
 
 #include <utility/utility.hpp>
 
+#include <spdlog/spdlog.h>
+
 namespace fileserver{
     class FilesystemVfs final : public IVfs{
     public:
@@ -13,11 +15,17 @@ namespace fileserver{
             , root_path( root_path )
         {}
 
-        std::vector<File> list_files( std::string const& path ) final{
+        std::vector<File> list_files( std::string path ) final{
+            if( path.front() == '/' ){
+                path = path.substr( 1 );
+            }
+
             namespace fs = std::filesystem;
             std::vector<File> files;
         
             fs::path full_path = fs::path( root_path ) / path;
+
+            spdlog::info( "VFS path {}" , full_path.string() );
         
             if ( !fs::exists( full_path ) || !fs::is_directory( full_path ))
                 return files;

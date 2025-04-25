@@ -7,7 +7,7 @@ namespace fileserver{
     class IVfs{
     public:
         IVfs(){}
-        virtual std::vector<File> list_files( std::string const& path ) = 0;
+        virtual std::vector<File> list_files( std::string path ) = 0;
 
         // virtual bool create_directory( std::string_view path );
 

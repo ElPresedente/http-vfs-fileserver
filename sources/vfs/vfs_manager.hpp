@@ -12,7 +12,7 @@ namespace fileserver{
 
         std::shared_ptr<IVfs> get_vfs( std::string const& name, std::string const& key );
 
-        bool create_filesystem_vfs( std::string const& name, std::string const& key, std::string const& root_path );
+        bool create_filesystem_vfs( std::string const& name, std::string const& root_path );
 
     private:
         AuthManager& _auth_manager;

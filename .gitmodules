@@ -4,3 +4,9 @@
 [submodule "submodules/json"]
 	path = submodules/json
 	url = https://github.com/nlohmann/json
+[submodule "submodules/cpp-httplib"]
+	path = submodules/cpp-httplib
+	url = https://github.com/yhirose/cpp-httplib
+[submodule "submodules/argparse"]
+	path = submodules/argparse
+	url = https://github.com/p-ranav/argparse

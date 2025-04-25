@@ -10,6 +10,7 @@
 namespace fileserver{
 
     void Configurator::read_file(){
+        spdlog::trace( _cfg_file_path );
         std::ifstream in( _cfg_file_path );
         if (!in.is_open()){
             spdlog::critical( "Ошибка при открытии файла конфигурации" );
@@ -24,8 +25,9 @@ namespace fileserver{
             std::string key = props["key"];
             std::string root = props["root"];
             
-            _auth_manager->get().register_vfs(name, key);
-            _vfs_manager->get().create_filesystem_vfs(name, key, root);
+            spdlog::trace( "Регистрируется VFS {}", name );
+            _auth_manager->get().register_vfs( name, key );
+            _vfs_manager->get().create_filesystem_vfs( name, root );
         }
     
         return;

@@ -1,0 +1,12 @@
+{
+    "vfs": {
+        "public": {
+            "key": "12345",
+            "root": "/home/rolark"
+        },
+            "private": {
+            "key": "secretkey",
+            "root": "/srv/private"
+        }
+    }
+}

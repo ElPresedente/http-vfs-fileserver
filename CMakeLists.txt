@@ -16,6 +16,8 @@ include_directories(${CMAKE_SOURCE_DIR}/submodules)
 # Сабмодули
 add_subdirectory(submodules/spdlog)
 add_subdirectory(submodules/json)
+add_subdirectory(submodules/cpp-httplib)
+add_subdirectory(submodules/argparse)
 
 # Собрать все исходники рекурсивно
 file(GLOB_RECURSE SOURCE_FILES
@@ -29,6 +31,8 @@ target_link_libraries(http_server
     PRIVATE
         spdlog::spdlog
         nlohmann_json::nlohmann_json
+        httplib::httplib
+        argparse::argparse
 )
 
 # Если будут библиотеки — линковать тут
